@@ -15,6 +15,21 @@ public class Main {
         System.out.println("\nSortowanie przez wstawianie (insertion sort)");
         System.out.println(Arrays.toString(insertionSort(randList())));
         System.out.println(insertionSort(randArr()));
+        System.out.println("\nSilnia");
+        System.out.println(silnia(5));
+        System.out.println("\nFibonaci");
+        System.out.println(fibonaci(20));
+        System.out.println("\nNWD za pomoca alg.Euklidesa");
+        System.out.println(nwd(42,56));
+        System.out.println("\nNWW");
+        System.out.println(nww(42,56));
+        System.out.println("\nWyszukiwanie Liniowe");
+        int czyZnaleziono = wyszukiwanieLiniowe(randList(), 10);
+        if (czyZnaleziono == -1){
+            System.out.println("Nie znaleziono liczby");
+        }else{
+            System.out.println("znaleziono liczbe na pozycji: " + czyZnaleziono);
+        }
     }
     //metoda Generowania losowych liczb w liscie
     static int[] randList(){
@@ -117,5 +132,48 @@ public class Main {
             list.set(j+1, key);
         }
         return list;
+    }
+
+    //silnia
+    static int silnia(int n){
+
+        for (int i = n - 1; i > 1; i--) {
+            n = n * i;
+        }
+        return n;
+        /*int result = 1;
+        for (int i = 1; i <= n; i++) {
+            n = n * i;
+        }
+        return result;*/
+    }
+
+    //fibonaci
+    static int fibonaci(int n){
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+        return fibonaci(n - 1) + fibonaci(n - 2);
+    }
+    //nwd alg.Euklidesa
+    static int nwd(int n, int k){
+        while (k != 0){
+            int c = n % k;
+            n = k;
+            k = c;
+        }
+        return n;
+    }
+    //nww
+    static int nww(int n, int k){
+        return (n * k)/nwd(n,k);
+    }
+    //Wyszukiwanie liniowe
+    static int wyszukiwanieLiniowe(int[] tab, int szukanaLiczba){
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] == szukanaLiczba){
+                return i;
+            }
+        }
+        return -1;
     }
 }
