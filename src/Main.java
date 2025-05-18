@@ -30,6 +30,19 @@ public class Main {
         }else{
             System.out.println("znaleziono liczbe na pozycji: " + czyZnaleziono);
         }
+
+        int[] tab = {1,2,3,4,5,6,7,8};
+        System.out.println("\nWyszukiwanie Binarne " + wyszukiwanieBinarne(tab, 7));
+        System.out.println("\nCzy liczba jest pierwsza");
+        System.out.println(czyPierwsza(96));
+
+        System.out.println("\nOdwracanie tablicy");
+
+        System.out.println(Arrays.toString(odwracanie(tab)));
+
+        System.out.println("\nZliczanie Wystepowania danej liczby: 4. Liczba wystapien:"+ liczWystepowanie(randList(),4));
+        System.out.println("\nZnajdowanie najmniejszej liczby: " + znajdzMin(randList()));
+        System.out.println("\nznajdowanie najwiekszej liczby" + znajdzMax(randList()));
     }
     //metoda Generowania losowych liczb w liscie
     static int[] randList(){
@@ -175,5 +188,76 @@ public class Main {
             }
         }
         return -1;
+    }
+    //Wyszukiwanie Binarne
+    static int wyszukiwanieBinarne(int[] tab, int szukanaLiczba){
+        //tablica musi byc posortowana!!
+        int l = 0;
+        int p = tab.length - 1;
+        while (l <= p){
+            int mid = l + (p - l)/2;
+            if (szukanaLiczba == tab[mid]){
+                return mid;
+            } else if (szukanaLiczba > tab[mid]) {
+                l = mid +1;
+            } else if (szukanaLiczba < tab[mid]) {
+                p = mid -1;
+            }
+
+        }
+        return -1;
+    }
+    //Sprawdzanie czy liczba jest liczba pierwszą
+    static boolean czyPierwsza(int a){
+        if (a < 1){
+            return false;
+        }
+        for (int i = 2; i < a; i++) {
+            if (i == a) {return true;}
+            if (a % i == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+    //Odwracanie tablicy
+    static int[] odwracanie(int[] tab){
+        for (int i = 0; i < tab.length/2; i++) {
+            int temp = tab[tab.length-i-1];
+            tab[tab.length-i-1] = tab[i];
+            tab[i] = temp;
+        }
+        return tab;
+    }
+    //Zliczanie wystepowania danej liczby w tablicy
+    static int liczWystepowanie(int[] tab, int x){
+        int licznik = 0;
+        for (int i = 0; i < tab.length; i++) {
+            if (tab[i] == x){
+                licznik ++;
+            }
+        }
+        return licznik;
+    }
+
+    //Znajdz Max
+    static int znajdzMax(int[] tab){
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < tab.length; i++) {
+            if (max < tab[i]){
+                max = tab[i];
+            }
+        }
+        return max;
+    }
+    //Znajdz Min
+    static int znajdzMin(int[] tab){
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < tab.length; i++) {
+            if (min > tab[i]){
+                min = tab[i];
+            }
+        }
+        return min;
     }
 }
