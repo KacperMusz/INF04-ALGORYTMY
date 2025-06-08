@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        /*System.out.println("Sortowanie bąbelkowe:");
+        System.out.println("Sortowanie bąbelkowe:");
         System.out.println(Arrays.toString(sortBabelkowe(randList())));
         System.out.println(sortBabelkowe(randArr()));
         System.out.println("\nSortowanie przez wybor(Selection sort)");
@@ -42,7 +42,7 @@ public class Main {
 
         System.out.println("\nZliczanie Wystepowania danej liczby: 4. Liczba wystapien:"+ liczWystepowanie(randList(),4));
         System.out.println("\nZnajdowanie najmniejszej liczby: " + znajdzMin(randList()));
-        System.out.println("\nznajdowanie najwiekszej liczby" + znajdzMax(randList()));*/
+        System.out.println("\nznajdowanie najwiekszej liczby" + znajdzMax(randList()));
 
         System.out.println(wyszukiwanieZWartownikiem(randList(), 20));
     }
