@@ -213,7 +213,6 @@ public class Main {
             return false;
         }
         for (int i = 2; i < a; i++) {
-            if (i == a) {return true;}
             if (a % i == 0){
                 return false;
             }
