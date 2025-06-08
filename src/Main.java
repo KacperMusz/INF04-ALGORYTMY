@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Sortowanie bąbelkowe:");
+        /*System.out.println("Sortowanie bąbelkowe:");
         System.out.println(Arrays.toString(sortBabelkowe(randList())));
         System.out.println(sortBabelkowe(randArr()));
         System.out.println("\nSortowanie przez wybor(Selection sort)");
@@ -42,7 +42,9 @@ public class Main {
 
         System.out.println("\nZliczanie Wystepowania danej liczby: 4. Liczba wystapien:"+ liczWystepowanie(randList(),4));
         System.out.println("\nZnajdowanie najmniejszej liczby: " + znajdzMin(randList()));
-        System.out.println("\nznajdowanie najwiekszej liczby" + znajdzMax(randList()));
+        System.out.println("\nznajdowanie najwiekszej liczby" + znajdzMax(randList()));*/
+
+        System.out.println(wyszukiwanieZWartownikiem(randList(), 20));
     }
     //metoda Generowania losowych liczb w liscie
     static int[] randList(){
@@ -206,6 +208,26 @@ public class Main {
 
         }
         return -1;
+    }
+    //Wyszukiwanie z wartownikiem
+    static int wyszukiwanieZWartownikiem(int[] tab, int szukanaLiczba){
+        int length = tab.length;
+        int ostatnia = tab[length - 1];
+        tab[length - 1] = szukanaLiczba;
+
+        int i = 0;
+        while (tab[i] != szukanaLiczba){
+            i++;
+        }
+
+        tab[length-1] = ostatnia;
+
+        if (i < length - 1 || ostatnia == szukanaLiczba){
+            return i;
+        }else{
+            return -1;
+        }
+
     }
     //Sprawdzanie czy liczba jest liczba pierwszą
     static boolean czyPierwsza(int a){
